@@ -98,6 +98,12 @@ header ul li a:hover {
     font-weight: 900;
     text-decoration: none;
 }
+.team_heading img{
+    height: 5em;
+    position: relative;
+    bottom: 1.5em;
+    width: 8em;
+}
 
 .lab-section {
     position: relative;
@@ -512,6 +518,7 @@ header ul li a:hover {
         margin: 10px 0;
     }
 
+    
   
     /* header ul li a:hover { */
         /* color: rgb(70, 31, 227); */
@@ -522,6 +529,14 @@ header ul li a:hover {
     header ul.active {
         visibility: visible;
         opacity: 1;
+    }
+    .team_heading img{
+        
+            height: 5em;
+            position: relative;
+            bottom: 1em;
+            width: 7em;
+        
     }
 
     .slider{
