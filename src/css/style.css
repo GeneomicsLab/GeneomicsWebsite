@@ -871,6 +871,7 @@ a.read_more:hover {
   padding: 8px;
   color: #131313;
   transition: 0.5s;
+  text-decoration: none;
 }
 
 .so_link a:hover {
