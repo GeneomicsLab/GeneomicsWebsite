@@ -92,6 +92,7 @@ header ul li a:hover {
 }
 
 .team_heading {
+  position: relative;
   /* font-family: 'Fjalla One', sans-serif; */
   color: rgb(24, 24, 24);
   font-size: 1em;
@@ -99,10 +100,12 @@ header ul li a:hover {
   text-decoration: none;
 }
 .team_heading .glablogo {
-  height: 10em;
-  position: relative;
-  bottom: 3.6em;
-  width: 10em;
+  height: 14.5em;
+  position: absolute;
+  top: -6em;
+  width: 14.5em;
+  /* justify-content: left; */
+  left: -1em;
 }
 
 .lab-section {
@@ -513,13 +516,28 @@ body {
     visibility: visible;
     opacity: 1;
   }
-  .team_heading img {
+  .team_heading {
+    position: relative;
+    /* font-family: 'Fjalla One', sans-serif; */
+    color: rgb(24, 24, 24);
+    font-size: 1em;
+    font-weight: 900;
+    text-decoration: none;
+  }
+  /* .team_heading img {
     height: 5em;
     position: relative;
     bottom: 1em;
     width: 7em;
+  } */
+  .team_heading .glablogo {
+    height: 9.5em;
+    position: absolute;
+    top: -3.5em;
+    width: 9.5em;
+    /* justify-content: left; */
+    left: -1em;
   }
-
   .slider {
     /* max-width: 900px; */
     padding-top: 100px;
