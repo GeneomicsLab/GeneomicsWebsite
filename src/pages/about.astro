@@ -1,92 +1,107 @@
 ---
 import "../css/style.css";
-import Layout from '../layouts/Layout.astro';	
-const members = await Astro.glob('../members/*.md');
-members.map(m => {
-   // // console.log(m.frontmatter);
-   const { socialLinks } = m.frontmatter;
-   // console.log(m.frontmatter.name);
-    socialLinks.map(s => {
-        if(s.name === 'github') {
-            m.frontmatter.github = s.url;
-            m.frontmatter.gClass = s.className;
-        } else if(s.name === 'twitter') {
-            m.frontmatter.twitter = s.url;
-            m.frontmatter.tClass = s.className;
-        } 
-      else if(s.name === 'linkedin'){
-         m.frontmatter.linkedin = s.url;
-         m.frontmatter.lClass = s.className;
-        }
+import Layout from "../layouts/Layout.astro";
+const members = await Astro.glob("../members/*.md");
+members.map((m) => {
+  // // console.log(m.frontmatter);
+  const { socialLinks } = m.frontmatter;
+  // console.log(m.frontmatter.name);
+  socialLinks.map((s) => {
+    if (s.name === "github") {
+      m.frontmatter.github = s.url;
+      m.frontmatter.gClass = s.className;
+    } else if (s.name === "twitter") {
+      m.frontmatter.twitter = s.url;
+      m.frontmatter.tClass = s.className;
+    } else if (s.name === "linkedin") {
+      m.frontmatter.linkedin = s.url;
+      m.frontmatter.lClass = s.className;
+    }
 
-      //   console.log(m.frontmatter.socialLinks);
-    });
-   // console.log(socialLinks);
+    //   console.log(m.frontmatter.socialLinks);
+  });
+  // console.log(socialLinks);
 });
 // console.log(members);
 ---
+
 <Layout title="About Us">
-   <section class="sec">
-      <header>
-         <a class="team_heading" href="/"><img src="../images/logo.png"></a>
-         <div class="toggleMenu"></div>
-         <ul class="navigation">
-            <li><a class="nav__link" href="/">Home</a></li>
-            <li><a class="nav__link" href="/about">About Us</a></li>
-            <li><a class="nav__link" href="/blogs">Blogs</a></li>
-         </ul>
-      </header>
+  <section class="sec">
+    <header>
+      <a class="team_heading" href="/"
+        ><img class="glablogo" src="https://i.imgur.com/Lw44UYg.png" /></a
+      >
+      <div class="toggleMenu"></div>
+      <ul class="navigation">
+        <li><a class="nav__link" href="/">Home</a></li>
+        <li><a class="nav__link" href="/about">About Us</a></li>
+        <li><a class="nav__link" href="/blogs">Blogs</a></li>
+      </ul>
+    </header>
 
-                        <!-- <section id="sec-three" > -->
-                              <div class="container slide-up" id="container_about">
-                                 <div class="grid">
-                                    {
-                                       members.map(m => {
-                                            const { name, shortBio, photoUrl, role, github, twitter, linkedin, gClass, tClass, lClass } = m.frontmatter;
-                                               return (
-                                                     
-                                               <div class="blog-card">
-                                                   <div class="card_img">
-                                                       <img src={photoUrl} alt="">
-                                                   </div>
-                                                   <div class="card_body">
-                                                        <h2 class="card_title">{name}</h2>
-                                                        <h3 id="card_title">{role}</h3> 
-                                                        <p>{shortBio}</p>
-                                                      
-                                                   </div>
-                                                   <div class="so_link">
-                                                         <a href={ github }><i class={ gClass }></i></a>
-                                                         <a href={ twitter }><i class={ tClass }></i></a>
-                                                         <a href={ linkedin }><i class={ lClass }></i></a>
-                                                      </div> 
-                                               </div>	                        	
-                                   
-                                         )
-                                      })
-                                   
-                                   }      
-                        </div>
-                     </div>  
-               </section>                
-               <!-- ______________footer____________________- -->
-                           <footer>
-                              <div class="foot-socials">
-                                 <a href="#"><i class="fab fa-github"></i></a>
-                                 <a href="#"><i class="fab fa-twitter"></i></a>
-                                 <a href="#"><i class="fab fa-linkedin"></i></a>
-                              </div>
-                                 <ul class="foot-list">
-                                       <li>
-                                          <a href="/">Home</a>
-                                          <a  href="/about">About Us</a>
-                                          <a  href="/blogs">Blogs</a>
-                                       </li>
-                                 </ul>
-                                 <p class="foot-copyright">Symbiotic Labs @ 2023</p>
-                              </footer>
+    <!-- <section id="sec-three" > -->
+    <div class="container slide-up" id="container_about">
+      <div class="grid">
+        {
+          members.map((m) => {
+            const {
+              name,
+              shortBio,
+              photoUrl,
+              role,
+              github,
+              twitter,
+              linkedin,
+              gClass,
+              tClass,
+              lClass,
+            } = m.frontmatter;
+            return (
+              <div class="blog-card">
+                <div class="card_img">
+                  <img src={photoUrl} alt="" />
+                </div>
+                <div class="card_body">
+                  <h2 class="card_title">{name}</h2>
+                  <h3 id="card_title">{role}</h3>
+                  <p>{shortBio}</p>
+                </div>
+                <div class="so_link">
+                  <a href={github}>
+                    <i class={gClass} />
+                  </a>
+                  <a href={twitter}>
+                    <i class={tClass} />
+                  </a>
+                  <a href={linkedin}>
+                    <i class={lClass} />
+                  </a>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+  <!-- ______________footer____________________- -->
+  <footer>
+    <div class="foot-socials">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <ul class="foot-list">
+      <li>
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/blogs">Blogs</a>
+      </li>
+    </ul>
+    <p class="foot-copyright">Symbiotic Labs @ 2023</p>
+  </footer>
 
-   <script>
-      import "../scripts/main.js";
-   </script>
+  <script>
+    import "../scripts/main.js";
+  </script>
 </Layout>
